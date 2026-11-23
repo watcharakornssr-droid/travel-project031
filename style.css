@@ -1,0 +1,420 @@
+* {
+box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+	line-height: 1.65;
+	color: #212121;        /*สีตัวอักษรที่แสดงผลในส่วนของเนื้อหาเว็บ*/
+	background: #ffe0b2;    /*สีพื้นหลังของตัวเว็บ*/
+}
+header, footer {
+	padding: 1rem;
+	color: #000000;   
+	background: #fb8c00;   /*สีพื้นหลังของส่วนหัวเว็บและท้ายเว็บ*/
+}
+.site-name {
+	margin: 0 0 0.5rem;
+	font-size: 1.25rem;
+	font-weigth: bold;
+}
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+nav a {
+	display: block;
+	padding: 0.35rem 0.75rem;
+	color: #ffffff;   /*สีตัวอักษรบนเมนู*/
+	border-radius: 0.35rem;
+}
+nav a:hover, nav a[aria-current="page"] {
+	background: #F8E8D3;   /*พื้นหลังของเมนูเมื่อเอาเมาส์ไปวางชี้*/
+	color: #174c3c;
+}
+a:focus-visible {
+	outline: 3px solid #c67400;
+	outline-offset: 3px;
+}
+main {
+	width: min(92%, 56rem);
+	margin: 2rem auto;
+}
+.card {
+	margin: 1rem 0;
+	padding: 1rem;
+	border: 1px solid #d1e2d7;
+	border-radius: 0.75rem;
+	background: #ffffff;  /*สีพื้นหลังของกรอบcard*/
+}
+img {
+	display: block;
+	max-width: 100%;
+	heigth: auto;
+	border-radius: 0.5rem;
+}
+.button {
+	display: inline-block;
+	padding: 0.6rem 1rem;
+	border-radius: 0.35rem;
+	background: #e65100;  /*สีของปุ่ม*/
+	color: white;
+	text-decoration: none;
+}
+
+
+.button:hover {
+    background: #205b3e;
+    color: #ffffff;
+}
+
+.gallery-section {
+    margin-top: 35px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section h2 {
+    color: #284638;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.gallery-section p {
+    color: #555555;
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #183426;
+}
+
+.slide {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    display: block;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 15px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-size: 23px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.prev:hover,
+.next:hover {
+    background: #284638;
+}
+
+
+.dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #b8c7bb;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot:hover {
+    background: #32845a;
+}
+
+.dot.active {
+    background: #284638;
+}
+
+/* เอฟเฟกต์เปลี่ยนภาพ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.login-main {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.login-container {
+    width: min(100%, 430px);
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #d1e2d7;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+.login-container h1 {
+    margin-top: 0;
+    color: #284638;
+    font-size: 28px;
+}
+
+.login-container p {
+    color: #555555;
+}
+
+.login-container form {
+    text-align: left;
+}
+
+.login-container label {
+    display: block;
+    margin: 15px 0 6px;
+    font-weight: bold;
+    color: #284638;
+}
+
+.login-container input,
+.login-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bacdc0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #212121;
+    font-size: 15px;
+}
+
+.login-container input:focus,
+.login-container select:focus {
+    outline: 2px solid #32845a;
+    border-color: #32845a;
+}
+
+.password-box {
+    display: flex;
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 70px;
+}
+
+.password-box button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: #284638;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 6px;
+    background: #284638;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #32845a;
+}
+
+#loginMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-info {
+    margin-top: 20px;
+    padding: 10px;
+    background: #edf5ef;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.login-info p {
+    margin: 5px;
+}
+
+footer {
+    background: #fb8c00;
+    color: #ffffff;
+    padding: 28px 16px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer p {
+    margin: 12px 0;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        display: block;
+        text-align: left;
+        padding: 16px;
+    }
+
+    .site-name {
+        font-size: 22px;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .gallery-section {
+        padding: 12px;
+    }
+
+    .gallery-section h2 {
+        font-size: 22px;
+    }
+
+    .slideshow {
+        height: 270px;
+    }
+
+    .slide-caption {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .login-container {
+        padding: 22px;
+    }
+
+    footer {
+        padding: 20px 16px;
+        text-align: left;
+        font-size: 16px;
+    }
+}
+
+/* แสดงสถานะผู้ใช้ */
+
+#userMenu {
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+#logoutBtn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background: #e65100;
+    color: white;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: #bf360c;
+}

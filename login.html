@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>เข้าสู่ระบบ - เที่ยวบ้านเรา</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <p class="site-name">เที่ยวบ้านเรา</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="places.html">ที่เที่ยว</a></li>
+            <li><a href="food.html">อาหาร</a></li>
+            <li><a href="plan.html">วางแผนเที่ยว</a></li>
+            <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+            <li id="loginMenu">
+   		 <a href="login.html">เข้าสู่ระบบ</a>
+		</li>
+		<li id="userMenu" style="display: none;">
+    		<span id="welcomeUser"></span>
+    		<button type="button" id="logoutBtn">ออกจากระบบ</button>
+		</li>
+        </ul>
+    </nav>
+</header>
+
+<main class="login-main">
+    <section class="login-container">
+        <h1>เข้าสู่ระบบ</h1>
+        <p>ยินดีต้อนรับสู่เว็บไซต์เที่ยวบ้านเรา</p>
+
+        <form id="loginForm">
+            <label for="username">ชื่อผู้ใช้</label>
+            <input type="text" id="username"
+                   placeholder="กรอกชื่อผู้ใช้"
+                   autocomplete="username" required>
+
+            <label for="password">รหัสผ่าน</label>
+            <div class="password-box">
+                <input type="password" id="password"
+                       placeholder="กรอกรหัสผ่าน"
+                       autocomplete="current-password" required>
+                <button type="button" id="togglePassword">
+                    แสดง
+                </button>
+            </div>
+
+            <label for="role">ประเภทผู้ใช้งาน</label>
+            <select id="role" required>
+                <option value="">เลือกประเภทผู้ใช้งาน</option>
+                <option value="member">สมาชิก</option>
+                <option value="admin">ผู้ดูแลระบบ</option>
+            </select>
+
+            <button type="submit" class="login-btn">
+                เข้าสู่ระบบ
+            </button>
+	<p>สมาชิก demo /  demo123 </p>
+	<p>แอดมิน admin /  admin123 </p>
+            <p id="loginMessage" role="status"></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>เที่ยวบ้านเรา · ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+
+<script>
+document.getElementById("togglePassword").addEventListener("click", function () {
+    const input = document.getElementById("password");
+    const visible = input.type === "password";
+
+    input.type = visible ? "text" : "password";
+    this.textContent = visible ? "ซ่อน" : "แสดง";
+});
+
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+    const message = document.getElementById("loginMessage");
+
+    const member = username === "demo" &&
+                   password === "demo123" &&
+                   role === "member";
+
+    const admin = username === "admin" &&
+                  password === "admin123" &&
+                  role === "admin";
+
+    if (member || admin) {
+        message.textContent = "เข้าสู่ระบบสำเร็จ";
+        message.style.color = "green";
+
+        sessionStorage.setItem("travelUser", username);
+
+        window.location.href = "index.html";
+    } else {
+        message.textContent = "ข้อมูลเข้าสู่ระบบไม่ถูกต้อง";
+        message.style.color = "red";
+    }
+});
+</script>
+
+</body>
+</html>
